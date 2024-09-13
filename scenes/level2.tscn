@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bbuj71l55oo28"]
+[gd_scene load_steps=15 format=3 uid="uid://bbuj71l55oo28"]
 
 [ext_resource type="Script" path="res://game_manager.gd" id="1_wbpla"]
 [ext_resource type="Texture2D" uid="uid://d3mcl6tac5402" path="res://Brown.png" id="2_eiws1"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://btvffh7v55iku" path="res://scenes/finish.tscn" id="6_t458s"]
 [ext_resource type="PackedScene" uid="uid://dkqb8hn2tf0he" path="res://scenes/collectable.tscn" id="7_73qcb"]
 [ext_resource type="PackedScene" uid="uid://j2ojtu3mov1" path="res://scenes/main_menu.tscn" id="7_fmw4x"]
+[ext_resource type="FontFile" uid="uid://d1j8y1kod6li2" path="res://DigitalDisco.ttf" id="9_ayuis"]
+[ext_resource type="Texture2D" uid="uid://3nvujc04onwg" path="res://Apple.png" id="9_xr2c0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hx0rn"]
 texture = ExtResource("3_q384s")
@@ -234,6 +236,21 @@ texture = ExtResource("3_q384s")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_hx0rn")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrut6"]
+atlas = ExtResource("9_xr2c0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_baq8g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrut6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Node" type="Node"]
 
 [node name="GameManager" type="Node" parent="."]
@@ -264,6 +281,11 @@ script = ExtResource("5_21l6q")
 
 [node name="Camera2D" type="Camera2D" parent="SceneObjects/CharacterBody2D"]
 position = Vector2(316, 496)
+process_callback = 0
+limit_left = -2
+limit_top = 12
+limit_right = 2630
+limit_bottom = -5
 position_smoothing_enabled = true
 position_smoothing_speed = 7.0
 
@@ -336,20 +358,36 @@ position = Vector2(2153, -95)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="UI"]
-offset_left = 9.0
-offset_top = 9.0
-offset_right = 104.0
-offset_bottom = 49.0
+offset_left = 7.0
+offset_top = 51.0
+offset_right = 96.0
+offset_bottom = 93.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/Panel"]
+texture_filter = 1
+position = Vector2(19, 26)
+scale = Vector2(2.78125, 2.78125)
+sprite_frames = SubResource("SpriteFrames_baq8g")
 
 [node name="PointsLabel" type="Label" parent="UI/Panel"]
 unique_name_in_owner = true
+texture_filter = 1
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.145346
+anchor_right = 1.03597
+anchor_bottom = 0.976852
+offset_left = 30.0642
+offset_top = 8.0
+offset_right = -6.20139
+offset_bottom = 6.97222
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 20
-text = "Points: 0"
+theme_override_colors/font_color = Color(2.31028e-06, 0.789402, 0.934463, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("9_ayuis")
+theme_override_font_sizes/font_size = 40
+text = "x0"
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

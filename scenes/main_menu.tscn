@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://j2ojtu3mov1"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_o5iuv"]
+[ext_resource type="Texture2D" uid="uid://d3mcl6tac5402" path="res://Brown.png" id="1_roav1"]
+[ext_resource type="Texture2D" uid="uid://cgi0im75irn4r" path="res://logo.png" id="2_k363d"]
+
+[node name="MainMenu" type="Node"]
+script = ExtResource("1_o5iuv")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_roav1")
+stretch_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+texture_filter = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.5
+offset_top = -111.0
+offset_right = 329.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k363d")
+
+[node name="Start" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = 60.0
+offset_right = 115.0
+offset_bottom = 127.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 26
+text = "Start Game"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]

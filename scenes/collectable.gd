@@ -8,6 +8,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if (body.name == "CharacterBody2D"):
 		animated_sprite_2d.play("collected")
 		await animated_sprite_2d.animation_finished
-		queue_free()
 		game_manager.add_point()
+		queue_free()
 		

@@ -196,7 +196,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oox6t"]
-size = Vector2(43, 56)
+size = Vector2(30, 56)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 
@@ -205,9 +205,8 @@ texture_filter = 1
 position = Vector2(319, 485)
 scale = Vector2(1.98438, 1.98438)
 sprite_frames = SubResource("SpriteFrames_whhkc")
-animation = &"falling"
 autoplay = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(319.5, 489)
+position = Vector2(321, 489)
 shape = SubResource("RectangleShape2D_oox6t")

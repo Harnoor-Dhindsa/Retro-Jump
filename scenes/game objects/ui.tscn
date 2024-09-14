@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://dl8ws2e24q80k"]
+
+[ext_resource type="Texture2D" uid="uid://3nvujc04onwg" path="res://assets/game_elements/Apple.png" id="1_syroq"]
+[ext_resource type="FontFile" uid="uid://d1j8y1kod6li2" path="res://assets/fonts/DigitalDisco.ttf" id="2_detsq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrut6"]
+atlas = ExtResource("1_syroq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w4b62"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrut6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(26, 77)
+scale = Vector2(2.78125, 2.78125)
+sprite_frames = SubResource("SpriteFrames_w4b62")
+
+[node name="PointsLabel" type="Label" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+anchors_preset = -1
+anchor_left = 0.0329861
+anchor_right = 0.923611
+anchor_bottom = 0.976852
+offset_left = 2.0
+offset_top = 59.0
+offset_right = -959.0
+offset_bottom = -534.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(2.31028e-06, 0.789402, 0.934463, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_detsq")
+theme_override_font_sizes/font_size = 40
+text = "x0"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

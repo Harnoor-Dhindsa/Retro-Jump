@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dl4gwefbo6gx4" path="res://assets/character/main/Fall (32x32).png" id="2_bchbm"]
 [ext_resource type="Texture2D" uid="uid://coakaxaqiyssu" path="res://assets/character/main/Jump (32x32).png" id="3_c4wdp"]
 [ext_resource type="Texture2D" uid="uid://bnetcwko6ud6c" path="res://assets/character/main/Run (32x32).png" id="4_rcn5g"]
-[ext_resource type="AudioStream" uid="uid://cse3w6ju6748e" path="res://assets/sound/jump.wav" id="5_dpo75"]
-[ext_resource type="AudioStream" uid="uid://db8q72yg661g2" path="res://assets/sound/walk.wav" id="6_jd6xv"]
+[ext_resource type="AudioStream" uid="uid://cse3w6ju6748e" path="res://assets/sound/sfx/jump.wav" id="5_dpo75"]
+[ext_resource type="AudioStream" uid="uid://db8q72yg661g2" path="res://assets/sound/sfx/walk.wav" id="6_jd6xv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmqg6"]
 atlas = ExtResource("1_7lxpg")

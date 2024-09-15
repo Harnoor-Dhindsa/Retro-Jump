@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://scenes/game objects/enemy.gd" id="1_frned"]
 [ext_resource type="Texture2D" uid="uid://6hxo0thrn7cb" path="res://assets/character/Mushroom/Idle (32x32).png" id="1_kdfns"]
 [ext_resource type="Texture2D" uid="uid://cvt55045q0iry" path="res://assets/character/Mushroom/Hit.png" id="3_liy8y"]
-[ext_resource type="AudioStream" uid="uid://d3uuydqgqhuwe" path="res://assets/sound/bounce.wav" id="4_bbtv8"]
-[ext_resource type="AudioStream" uid="uid://2jbb6sol4mrc" path="res://assets/sound/hit.wav" id="5_d63vt"]
+[ext_resource type="AudioStream" uid="uid://d3uuydqgqhuwe" path="res://assets/sound/sfx/bounce.wav" id="4_bbtv8"]
+[ext_resource type="AudioStream" uid="uid://2jbb6sol4mrc" path="res://assets/sound/sfx/hit.wav" id="5_d63vt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sli6p"]
 atlas = ExtResource("1_kdfns")

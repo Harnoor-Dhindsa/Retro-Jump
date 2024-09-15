@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="ignore"
 
@@ -57,3 +58,7 @@ pause={
 
 renderer/rendering_method="mobile"
 environment/defaults/default_clear_color=Color(0.129412, 0.121569, 0.188235, 1)
+
+[user_settings]
+
+volume_toggled=false

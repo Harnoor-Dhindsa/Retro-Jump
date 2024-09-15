@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://dy4fwdbjpgdql"]
+[gd_scene load_steps=21 format=3 uid="uid://dy4fwdbjpgdql"]
 
 [ext_resource type="Texture2D" uid="uid://daturbiqw3wrv" path="res://assets/background/CloudsBG/1.png" id="1_tryro"]
+[ext_resource type="Script" path="res://scenes/menu/option_menu.gd" id="1_yqm7l"]
 [ext_resource type="Texture2D" uid="uid://be63yyg41br7y" path="res://assets/background/CloudsBG/3.png" id="2_8aclc"]
 [ext_resource type="Texture2D" uid="uid://duf8ivrt8v7yb" path="res://assets/background/CloudsBG/4.png" id="3_tbkok"]
 [ext_resource type="Texture2D" uid="uid://bsfyisldsj2oq" path="res://assets/background/CloudsBG/2.png" id="4_47nln"]
@@ -13,17 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b6d71ug15e6p1" path="res://assets/menu/Levels.png" id="11_e22nb"]
 [ext_resource type="Texture2D" uid="uid://cvwl0baye8oau" path="res://assets/menu/controlImage/controller.png" id="12_ncmcq"]
 [ext_resource type="Texture2D" uid="uid://dw75cannbh1ql" path="res://assets/menu/controlImage/xboxs.png" id="13_w0eyn"]
-
-[sub_resource type="GDScript" id="GDScript_2v7a2"]
-script/source = "extends Node
-
-func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scenes/menu/level_menu.tscn\")
-	
-
-func _on_back_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scenes/menu/main_menu.tscn\")
-"
+[ext_resource type="AudioStream" uid="uid://dac1qi7mu11lo" path="res://assets/sound/sfx/button.mp3" id="14_6gmhx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nyp84"]
 texture = ExtResource("5_ap4n0")
@@ -226,7 +217,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0, 0, 0, 0.541176)
 
 [node name="OptionMenu" type="Node"]
-script = SubResource("GDScript_2v7a2")
+script = ExtResource("1_yqm7l")
 
 [node name="background" type="Node" parent="."]
 
@@ -290,7 +281,7 @@ offset_right = 118.0
 offset_bottom = 472.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8bqda")
 
-[node name="Button" type="Button" parent="UI/Levels"]
+[node name="levels" type="Button" parent="UI/Levels"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -434,5 +425,11 @@ theme_override_fonts/font = ExtResource("8_tg3am")
 theme_override_font_sizes/font_size = 30
 text = "PAUSE"
 
-[connection signal="pressed" from="UI/Levels/Button" to="." method="_on_button_pressed"]
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_6gmhx")
+volume_db = -10.0
+
+[connection signal="mouse_entered" from="UI/Levels/levels" to="." method="_on_levels_mouse_entered"]
+[connection signal="pressed" from="UI/Levels/levels" to="." method="_on_levels_pressed"]
+[connection signal="mouse_entered" from="UI/How To Play/back" to="." method="_on_back_mouse_entered"]
 [connection signal="pressed" from="UI/How To Play/back" to="." method="_on_back_pressed"]

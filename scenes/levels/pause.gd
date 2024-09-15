@@ -1,5 +1,6 @@
 extends Node
 @onready var pause_panel: Panel = %PausePanel
+@onready var hover: AudioStreamPlayer = $hover
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,12 +15,27 @@ func _process(delta: float) -> void:
 		get_tree().paused = true
 		pause_panel.show()
 
-
 func _on_resume_pressed() -> void:
 	pause_panel.hide()
 	get_tree().paused = false
+	
+func _on_levelsel_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/menu/level_menu.tscn")
 
 
 func _on_exit_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/menu/main_menu.tscn")
+
+
+func _on_resume_mouse_entered() -> void:
+	hover.play()
+
+
+func _on_levelsel_mouse_entered() -> void:
+	hover.play()
+
+
+func _on_exit_mouse_entered() -> void:
+	hover.play()

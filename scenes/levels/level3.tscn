@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bujpltfm4shlh"]
+[gd_scene load_steps=27 format=3 uid="uid://bujpltfm4shlh"]
 
 [ext_resource type="Script" path="res://scenes/game objects/game_manager.gd" id="1_2mwb2"]
 [ext_resource type="Texture2D" uid="uid://bf3w6qg7qbua3" path="res://assets/background/Green.png" id="2_mwfk0"]
@@ -9,11 +9,16 @@
 [ext_resource type="Script" path="res://scenes/game objects/fall.gd" id="7_4f3l4"]
 [ext_resource type="PackedScene" uid="uid://j2ojtu3mov1" path="res://scenes/menu/main_menu.tscn" id="7_fvs2x"]
 [ext_resource type="PackedScene" uid="uid://dkqb8hn2tf0he" path="res://scenes/game objects/collectable.tscn" id="8_y4ncp"]
+[ext_resource type="AudioStream" uid="uid://d0jpkrexyhv1p" path="res://assets/sound/sfx/game_over.mp3" id="9_o4b3t"]
 [ext_resource type="PackedScene" uid="uid://8ohi2vhhhjo5" path="res://scenes/game objects/enemy.tscn" id="9_uvigr"]
 [ext_resource type="Texture2D" uid="uid://3nvujc04onwg" path="res://assets/game_elements/Apple.png" id="10_atjm8"]
 [ext_resource type="FontFile" uid="uid://d1j8y1kod6li2" path="res://assets/fonts/DigitalDisco.ttf" id="11_hhlhm"]
 [ext_resource type="Texture2D" uid="uid://bd4lbyartefal" path="res://assets/game_elements/heart.png" id="12_g6fec"]
 [ext_resource type="Script" path="res://scenes/levels/pause.gd" id="13_qahxs"]
+[ext_resource type="Texture2D" uid="uid://bopvwr0mkmik3" path="res://assets/menu/Play.png" id="16_y001a"]
+[ext_resource type="Texture2D" uid="uid://b6d71ug15e6p1" path="res://assets/menu/Levels.png" id="17_kwui1"]
+[ext_resource type="Texture2D" uid="uid://b1lo0e8gjftp5" path="res://assets/menu/Close.png" id="18_0065d"]
+[ext_resource type="AudioStream" uid="uid://dac1qi7mu11lo" path="res://assets/sound/sfx/button.mp3" id="19_l8nyh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hx0rn"]
 texture = ExtResource("3_abhk0")
@@ -240,11 +245,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exxd8"]
-bg_color = Color(0, 0, 0, 1)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4u8d7"]
 bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjuss"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Node" type="Node"]
 
@@ -296,6 +301,9 @@ script = ExtResource("7_4f3l4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SceneObjects/Area2D"]
 shape = SubResource("WorldBoundaryShape2D_8gw72")
+
+[node name="gameover" type="AudioStreamPlayer2D" parent="SceneObjects/Area2D"]
+stream = ExtResource("9_o4b3t")
 
 [node name="Collectables" type="Node" parent="SceneObjects"]
 
@@ -446,67 +454,6 @@ layout_mode = 2
 texture = ExtResource("12_g6fec")
 expand_mode = 2
 
-[node name="Pause" type="Node" parent="UI"]
-script = ExtResource("13_qahxs")
-
-[node name="PausePanel" type="Panel" parent="UI/Pause"]
-unique_name_in_owner = true
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="UI/Pause/PausePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -139.0
-offset_top = -104.0
-offset_right = 134.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("11_hhlhm")
-theme_override_font_sizes/font_size = 84
-text = "PAUSED"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Pause/PausePanel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -159.0
-offset_top = -4.0
-offset_right = 159.0
-offset_bottom = 124.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 8
-alignment = 1
-
-[node name="Resume" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_exxd8")
-text = "RESUME"
-
-[node name="Exit" type="Button" parent="UI/Pause/PausePanel/VBoxContainer"]
-process_mode = 3
-layout_mode = 2
-theme_override_constants/outline_size = 0
-theme_override_constants/h_separation = 0
-theme_override_font_sizes/font_size = 40
-theme_override_styles/normal = SubResource("StyleBoxFlat_exxd8")
-text = "Exit"
-
 [node name="level" type="Panel" parent="UI"]
 anchors_preset = 5
 anchor_left = 0.5
@@ -539,6 +486,133 @@ text = "LEVEL - 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Pause" type="Node" parent="UI"]
+script = ExtResource("13_qahxs")
+
+[node name="PausePanel" type="Panel" parent="UI/Pause"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/Pause/PausePanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -143.0
+offset_right = 177.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_hhlhm")
+theme_override_font_sizes/font_size = 110
+text = "PAUSED"
+
+[node name="start" type="Panel" parent="UI/Pause/PausePanel"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -22.0
+offset_right = -35.0
+offset_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.28, 1.72)
+
+[node name="resume" type="Button" parent="UI/Pause/PausePanel/start"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_hhlhm")
+theme_override_font_sizes/font_size = 19
+theme_override_styles/normal = SubResource("StyleBoxFlat_pjuss")
+text = "Resume"
+icon = ExtResource("16_y001a")
+alignment = 0
+expand_icon = true
+
+[node name="Levels" type="Panel" parent="UI/Pause/PausePanel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 431.0
+offset_top = 380.0
+offset_right = 542.0
+offset_bottom = 420.0
+scale = Vector2(2.27073, 1.68591)
+
+[node name="levelsel" type="Button" parent="UI/Pause/PausePanel/Levels"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_hhlhm")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_pjuss")
+text = "Levels"
+icon = ExtResource("17_kwui1")
+alignment = 0
+expand_icon = true
+
+[node name="exit" type="Panel" parent="UI/Pause/PausePanel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 433.0
+offset_top = 456.0
+offset_right = 544.0
+offset_bottom = 496.0
+scale = Vector2(2.28, 1.72)
+
+[node name="exit" type="Button" parent="UI/Pause/PausePanel/exit"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("11_hhlhm")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_pjuss")
+text = "Exit"
+icon = ExtResource("18_0065d")
+alignment = 0
+expand_icon = true
+
+[node name="hover" type="AudioStreamPlayer" parent="UI/Pause"]
+stream = ExtResource("19_l8nyh")
+volume_db = -10.0
+
 [connection signal="body_entered" from="SceneObjects/Area2D" to="SceneObjects/Area2D" method="_on_body_entered"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Resume" to="UI/Pause" method="_on_resume_pressed"]
-[connection signal="pressed" from="UI/Pause/PausePanel/VBoxContainer/Exit" to="UI/Pause" method="_on_exit_pressed"]
+[connection signal="mouse_entered" from="UI/Pause/PausePanel/start/resume" to="UI/Pause" method="_on_resume_mouse_entered"]
+[connection signal="pressed" from="UI/Pause/PausePanel/start/resume" to="UI/Pause" method="_on_resume_pressed"]
+[connection signal="mouse_entered" from="UI/Pause/PausePanel/Levels/levelsel" to="UI/Pause" method="_on_levelsel_mouse_entered"]
+[connection signal="pressed" from="UI/Pause/PausePanel/Levels/levelsel" to="UI/Pause" method="_on_levelsel_pressed"]
+[connection signal="mouse_entered" from="UI/Pause/PausePanel/exit/exit" to="UI/Pause" method="_on_exit_mouse_entered"]
+[connection signal="pressed" from="UI/Pause/PausePanel/exit/exit" to="UI/Pause" method="_on_exit_pressed"]

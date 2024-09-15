@@ -1,5 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://j2ojtu3mov1"]
+[gd_scene load_steps=23 format=3 uid="uid://j2ojtu3mov1"]
 
+[ext_resource type="Script" path="res://scenes/menu/main_menu.gd" id="1_2ce7j"]
 [ext_resource type="Texture2D" uid="uid://daturbiqw3wrv" path="res://assets/background/CloudsBG/1.png" id="1_uw0j1"]
 [ext_resource type="Texture2D" uid="uid://by4mfe4qsm6d4" path="res://assets/menu/logo.png" id="2_h2k2i"]
 [ext_resource type="Texture2D" uid="uid://be63yyg41br7y" path="res://assets/background/CloudsBG/3.png" id="2_jn803"]
@@ -8,27 +9,14 @@
 [ext_resource type="PackedScene" uid="uid://cbl1dwhojyqq0" path="res://scenes/game objects/main_character.tscn" id="4_b34mj"]
 [ext_resource type="Texture2D" uid="uid://bsfyisldsj2oq" path="res://assets/background/CloudsBG/2.png" id="4_f5nku"]
 [ext_resource type="Script" path="res://scenes/game objects/main_character.gd" id="5_s04ux"]
-[ext_resource type="PackedScene" uid="uid://o67o564nh7du" path="res://scenes/game objects/start.tscn" id="6_onnvn"]
 [ext_resource type="FontFile" uid="uid://d1j8y1kod6li2" path="res://assets/fonts/DigitalDisco.ttf" id="10_1866d"]
 [ext_resource type="Texture2D" uid="uid://b6d71ug15e6p1" path="res://assets/menu/Levels.png" id="11_ydtt5"]
+[ext_resource type="Texture2D" uid="uid://bopvwr0mkmik3" path="res://assets/menu/Play.png" id="12_krxws"]
 [ext_resource type="Texture2D" uid="uid://v55ngauyhxiu" path="res://assets/menu/Settings.png" id="12_sme1w"]
-
-[sub_resource type="GDScript" id="GDScript_2v7a2"]
-script/source = "extends Node
-
-
-func _on_start_body_entered(body: Node2D) -> void:
-	if (body.name == \"CharacterBody2D\"):
-		get_tree().change_scene_to_file(\"res://scenes/levels/level1.tscn\")
-		
-
-func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scenes/menu/level_menu.tscn\")
-
-
-func _on_options_pressed() -> void:
-	get_tree().change_scene_to_file(\"res://scenes/menu/option_menu.tscn\")
-"
+[ext_resource type="Texture2D" uid="uid://b1lo0e8gjftp5" path="res://assets/menu/Close.png" id="13_7fhnu"]
+[ext_resource type="AudioStream" uid="uid://dac1qi7mu11lo" path="res://assets/sound/sfx/button.mp3" id="13_seio7"]
+[ext_resource type="Texture2D" uid="uid://d3c13eas8gx1e" path="res://assets/menu/Volume.png" id="14_5hty8"]
+[ext_resource type="AudioStream" uid="uid://cbv1ykpsokgto" path="res://assets/sound/bg/bg.ogg" id="15_rik6n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nyp84"]
 texture = ExtResource("3_04j2n")
@@ -221,21 +209,17 @@ texture = ExtResource("3_04j2n")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_nyp84")
 
-[sub_resource type="GDScript" id="GDScript_s0anv"]
-script/source = "extends Area2D
-"
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngjtd"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bqda"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8fu1"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngdt2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="MainMenu" type="Node"]
-script = SubResource("GDScript_2v7a2")
+script = ExtResource("1_2ce7j")
 
 [node name="background" type="Node" parent="."]
 
@@ -300,51 +284,22 @@ texture_filter = 1
 scale = Vector2(3, 3)
 tile_set = SubResource("TileSet_4ny5n")
 format = 2
-layer_0/tile_data = PackedInt32Array(2424832, 393216, 0, 2490368, 393216, 1, 2555904, 393216, 2, 2424833, 458752, 0, 2490369, 458752, 1, 2555905, 458752, 2, 2424834, 524288, 0, 2490370, 524288, 1, 2555906, 524288, 2, 720896, 458752, 0, 786432, 458752, 1, 851968, 458752, 1, 720897, 458752, 0, 786433, 458752, 1, 851969, 458752, 1, 720898, 458752, 0, 786434, 458752, 1, 851970, 458752, 1, 720899, 458752, 0, 786435, 458752, 1, 851971, 458752, 1, 720900, 458752, 0, 786436, 458752, 1, 851972, 458752, 1, 720901, 458752, 0, 786437, 458752, 1, 851973, 458752, 1, 720902, 458752, 0, 786438, 458752, 1, 851974, 458752, 1, 720903, 458752, 0, 786439, 458752, 1, 851975, 458752, 1, 720904, 458752, 0, 786440, 458752, 1, 851976, 458752, 1, 720905, 458752, 0, 786441, 458752, 1, 851977, 458752, 1, 720906, 458752, 0, 786442, 458752, 1, 851978, 458752, 1, 720907, 458752, 0, 786443, 458752, 1, 851979, 458752, 1, 720908, 458752, 0, 786444, 458752, 1, 851980, 458752, 1, 720909, 458752, 0, 786445, 458752, 1, 851981, 458752, 1, 720910, 458752, 0, 786446, 458752, 1, 851982, 458752, 1, 720911, 458752, 0, 786447, 458752, 1, 851983, 458752, 1, 720912, 458752, 0, 786448, 458752, 1, 851984, 458752, 1, 720913, 458752, 0, 786449, 458752, 1, 851985, 458752, 1, 720914, 458752, 0, 786450, 458752, 1, 851986, 458752, 1, 720915, 458752, 0, 786451, 458752, 1, 851987, 458752, 1, 720916, 458752, 0, 786452, 458752, 1, 851988, 458752, 1, 720917, 458752, 0, 786453, 458752, 1, 851989, 458752, 1, 720918, 458752, 0, 786454, 458752, 1, 851990, 458752, 1, 720919, 458752, 0, 786455, 458752, 1, 851991, 458752, 1, 655371, 786432, 1, 655372, 786432, 1, 589835, 786432, 1, 589836, 786432, 1, 524299, 786432, 1, 524300, 786432, 1, 589834, 786432, 1, 655369, 786432, 1, 655370, 786432, 1, 589837, 786432, 1, 655373, 786432, 1, 655374, 786432, 1, 983039, 131072, 4, 917503, 131072, 5, 851967, 131072, 5, 786431, 131072, 5, 720895, 131072, 5, 655359, 131072, 5, 589823, 131072, 5, 524287, 131072, 5, 458751, 131072, 5, 393215, 131072, 5, 327679, 131072, 5, 262143, 131072, 5, 196607, 131072, 5, 131071, 131072, 5, 65535, 131072, 5, -1, 131072, 6, -65536, 65536, 2, -65535, 65536, 2, -65534, 65536, 2, -65533, 65536, 2, -65532, 65536, 2, -65531, 65536, 2, -65530, 65536, 2, -65529, 65536, 2, -65528, 65536, 2, -65527, 65536, 2, -65526, 65536, 2, -65525, 65536, 2, -65524, 65536, 2, -65523, 65536, 2, -65522, 65536, 2, -65521, 65536, 2, -65520, 65536, 2, -65519, 65536, 2, -65518, 65536, 2, -65517, 65536, 2, -65516, 65536, 2, -65515, 65536, 2, -65514, 65536, 2, -65513, 65536, 2, -65512, 0, 6, 24, 0, 5, 65560, 0, 5, 131096, 0, 5, 196632, 0, 5, 262168, 0, 5, 327704, 0, 5, 393240, 0, 5, 458776, 0, 5, 524312, 0, 5, 589848, 0, 5, 655384, 0, 5, 720920, 0, 5, 786456, 0, 5, 851992, 0, 5, 917528, 0, 4, 917504, 65536, 0, 917505, 65536, 0, 917506, 65536, 0, 917507, 65536, 0, 917508, 65536, 0, 917509, 65536, 0, 917510, 65536, 0, 917511, 65536, 0, 917512, 65536, 0, 917513, 65536, 0, 917514, 65536, 0, 917515, 65536, 0, 917516, 65536, 0, 917517, 65536, 0, 917518, 65536, 0, 917519, 65536, 0, 917520, 65536, 0, 917521, 65536, 0, 917522, 65536, 0, 917523, 65536, 0, 917524, 65536, 0, 917525, 65536, 0, 917526, 65536, 0, 917527, 65536, 0)
+layer_0/tile_data = PackedInt32Array(2424832, 393216, 0, 2490368, 393216, 1, 2555904, 393216, 2, 2424833, 458752, 0, 2490369, 458752, 1, 2555905, 458752, 2, 2424834, 524288, 0, 2490370, 524288, 1, 2555906, 524288, 2, 720896, 458752, 0, 786432, 458752, 1, 851968, 458752, 1, 720897, 458752, 0, 786433, 458752, 1, 851969, 458752, 1, 720898, 458752, 0, 786434, 458752, 1, 851970, 458752, 1, 720899, 458752, 0, 786435, 458752, 1, 851971, 458752, 1, 720900, 458752, 0, 786436, 458752, 1, 851972, 458752, 1, 720901, 458752, 0, 786437, 458752, 1, 851973, 458752, 1, 720902, 458752, 0, 786438, 458752, 1, 851974, 458752, 1, 720903, 458752, 0, 786439, 458752, 1, 851975, 458752, 1, 720904, 458752, 0, 786440, 458752, 1, 851976, 458752, 1, 720905, 458752, 0, 786441, 458752, 1, 851977, 458752, 1, 720906, 655360, 1, 786442, 458752, 1, 851978, 458752, 1, 720907, 458752, 1, 786443, 458752, 1, 851979, 458752, 1, 720908, 458752, 1, 786444, 458752, 1, 851980, 458752, 1, 720909, 589824, 1, 786445, 458752, 1, 851981, 458752, 1, 720910, 458752, 0, 786446, 458752, 1, 851982, 458752, 1, 720911, 458752, 0, 786447, 458752, 1, 851983, 458752, 1, 720912, 458752, 0, 786448, 458752, 1, 851984, 458752, 1, 720913, 458752, 0, 786449, 458752, 1, 851985, 458752, 1, 720914, 458752, 0, 786450, 458752, 1, 851986, 458752, 1, 720915, 458752, 0, 786451, 458752, 1, 851987, 458752, 1, 720916, 458752, 0, 786452, 458752, 1, 851988, 458752, 1, 720917, 458752, 0, 786453, 458752, 1, 851989, 458752, 1, 720918, 458752, 0, 786454, 458752, 1, 851990, 458752, 1, 720919, 458752, 0, 786455, 458752, 1, 851991, 458752, 1, 655371, 458752, 1, 655372, 458752, 1, 589835, 458752, 1, 589836, 458752, 1, 524299, 786432, 1, 524300, 786432, 1, 589834, 458752, 1, 655369, 786432, 1, 655370, 458752, 1, 589837, 458752, 1, 655373, 458752, 1, 655374, 786432, 1, 983039, 131072, 4, 917503, 131072, 5, 851967, 131072, 5, 786431, 131072, 5, 720895, 131072, 5, 655359, 131072, 5, 589823, 131072, 5, 524287, 131072, 5, 458751, 131072, 5, 393215, 131072, 5, 327679, 131072, 5, 262143, 131072, 5, 196607, 131072, 5, 131071, 131072, 5, 65535, 131072, 5, -1, 131072, 6, -65536, 65536, 2, -65535, 65536, 2, -65534, 65536, 2, -65533, 65536, 2, -65532, 65536, 2, -65531, 65536, 2, -65530, 65536, 2, -65529, 65536, 2, -65528, 65536, 2, -65527, 65536, 2, -65526, 65536, 2, -65525, 65536, 2, -65524, 65536, 2, -65523, 65536, 2, -65522, 65536, 2, -65521, 65536, 2, -65520, 65536, 2, -65519, 65536, 2, -65518, 65536, 2, -65517, 65536, 2, -65516, 65536, 2, -65515, 65536, 2, -65514, 65536, 2, -65513, 65536, 2, -65512, 0, 6, 24, 0, 5, 65560, 0, 5, 131096, 0, 5, 196632, 0, 5, 262168, 0, 5, 327704, 0, 5, 393240, 0, 5, 458776, 0, 5, 524312, 0, 5, 589848, 0, 5, 655384, 0, 5, 720920, 0, 5, 786456, 0, 5, 851992, 0, 5, 917528, 0, 4, 917504, 65536, 0, 917505, 65536, 0, 917506, 65536, 0, 917507, 65536, 0, 917508, 65536, 0, 917509, 65536, 0, 917510, 65536, 0, 917511, 65536, 0, 917512, 65536, 0, 917513, 65536, 0, 917514, 65536, 0, 917515, 65536, 0, 917516, 65536, 0, 917517, 65536, 0, 917518, 65536, 0, 917519, 65536, 0, 917520, 65536, 0, 917521, 65536, 0, 917522, 65536, 0, 917523, 65536, 0, 917524, 65536, 0, 917525, 65536, 0, 917526, 65536, 0, 917527, 65536, 0, 524298, 786432, 1, 589833, 786432, 1, 524297, 786432, 1, 524301, 786432, 1, 524302, 786432, 1, 589838, 786432, 1, 655367, 786432, 1, 655368, 786432, 1, 589832, 786432, 1, 589839, 786432, 1, 655375, 786432, 1, 655376, 786432, 1)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_b34mj")]
 position = Vector2(256, -132)
 script = ExtResource("5_s04ux")
 
-[node name="start" parent="." instance=ExtResource("6_onnvn")]
-script = SubResource("GDScript_s0anv")
-
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="Start" type="Panel" parent="UI"]
-offset_left = -52.0
-offset_top = -8.0
-offset_right = 69.0
-offset_bottom = 32.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ngjtd")
-
-[node name="Label" type="Label" parent="UI/Start"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1099.0
-offset_top = 436.0
-offset_right = 1087.0
-offset_bottom = 432.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("10_1866d")
-theme_override_font_sizes/font_size = 25
-text = "Start"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Levels" type="Panel" parent="UI"]
-offset_left = 7.0
-offset_top = 432.0
-offset_right = 118.0
-offset_bottom = 472.0
+offset_left = 519.0
+offset_top = 481.0
+offset_right = 630.0
+offset_bottom = 521.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8bqda")
 
-[node name="Button" type="Button" parent="UI/Levels"]
+[node name="levels" type="Button" parent="UI/Levels"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -362,10 +317,10 @@ alignment = 0
 expand_icon = true
 
 [node name="How To Play" type="Panel" parent="UI"]
-offset_left = 7.0
-offset_top = 477.0
-offset_right = 118.0
-offset_bottom = 517.0
+offset_left = 519.0
+offset_top = 526.0
+offset_right = 630.0
+offset_bottom = 566.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8bqda")
 
 [node name="options" type="Button" parent="UI/How To Play"]
@@ -378,13 +333,100 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_1866d")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_w8fu1")
-text = "Options"
+text = "Controls"
 icon = ExtResource("12_sme1w")
 alignment = 0
 expand_icon = true
 
-[connection signal="body_entered" from="start" to="." method="_on_start_body_entered"]
-[connection signal="pressed" from="UI/Levels/Button" to="." method="_on_button_pressed"]
+[node name="quit" type="Panel" parent="UI"]
+offset_left = 519.0
+offset_top = 570.0
+offset_right = 630.0
+offset_bottom = 610.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bqda")
+
+[node name="quit" type="Button" parent="UI/quit"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_1866d")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8fu1")
+text = "Quit"
+icon = ExtResource("13_7fhnu")
+alignment = 0
+expand_icon = true
+
+[node name="start" type="Panel" parent="UI"]
+offset_left = 519.0
+offset_top = 436.0
+offset_right = 630.0
+offset_bottom = 476.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bqda")
+
+[node name="start" type="Button" parent="UI/start"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_1866d")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8fu1")
+text = "Start"
+icon = ExtResource("12_krxws")
+alignment = 0
+expand_icon = true
+
+[node name="sound" type="Panel" parent="UI"]
+texture_filter = 1
+offset_left = 1008.0
+offset_top = 9.0
+offset_right = 1139.0
+offset_bottom = 57.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ngdt2")
+
+[node name="volume" type="CheckButton" parent="UI/sound"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+button_pressed = true
+action_mode = 0
+icon = ExtResource("14_5hty8")
+icon_alignment = 1
+expand_icon = true
+
+[node name="hover" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_seio7")
+volume_db = -10.0
+
+[node name="bg" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_rik6n")
+volume_db = -16.0
+autoplay = true
+
+[connection signal="mouse_entered" from="UI/Levels/levels" to="." method="_on_levels_mouse_entered"]
+[connection signal="pressed" from="UI/Levels/levels" to="." method="_on_levels_pressed"]
+[connection signal="mouse_entered" from="UI/How To Play/options" to="." method="_on_options_mouse_entered"]
 [connection signal="pressed" from="UI/How To Play/options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="UI/quit/quit" to="." method="_on_quit_mouse_entered"]
+[connection signal="pressed" from="UI/quit/quit" to="." method="_on_quit_pressed"]
+[connection signal="mouse_entered" from="UI/start/start" to="." method="_on_start_mouse_entered"]
+[connection signal="pressed" from="UI/start/start" to="." method="_on_start_pressed"]
+[connection signal="toggled" from="UI/sound/volume" to="." method="_on_volume_toggled"]
+[connection signal="ready" from="bg" to="." method="_on_bg_ready"]

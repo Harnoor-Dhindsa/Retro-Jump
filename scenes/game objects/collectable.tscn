@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/game objects/collectable.gd" id="1_2ik2g"]
 [ext_resource type="Texture2D" uid="uid://3nvujc04onwg" path="res://assets/game_elements/Apple.png" id="1_iy6ab"]
 [ext_resource type="Texture2D" uid="uid://ditw8avl1ms5n" path="res://assets/game_elements/Collected.png" id="2_e5scv"]
-[ext_resource type="AudioStream" uid="uid://b1bbm7q8o6gae" path="res://assets/sound/collect.wav" id="4_jvbbf"]
+[ext_resource type="AudioStream" uid="uid://b1bbm7q8o6gae" path="res://assets/sound/sfx/collect.wav" id="4_jvbbf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7eme6"]
 atlas = ExtResource("2_e5scv")

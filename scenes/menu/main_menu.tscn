@@ -1,11 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://j2ojtu3mov1"]
+[gd_scene load_steps=20 format=3 uid="uid://j2ojtu3mov1"]
 
-[ext_resource type="Texture2D" uid="uid://d3mcl6tac5402" path="res://assets/background/Brown.png" id="1_d05sj"]
-[ext_resource type="Texture2D" uid="uid://cgi0im75irn4r" path="res://assets/menu/logo.png" id="2_h2k2i"]
+[ext_resource type="Texture2D" uid="uid://daturbiqw3wrv" path="res://assets/background/CloudsBG/1.png" id="1_uw0j1"]
+[ext_resource type="Texture2D" uid="uid://by4mfe4qsm6d4" path="res://assets/menu/logo.png" id="2_h2k2i"]
+[ext_resource type="Texture2D" uid="uid://be63yyg41br7y" path="res://assets/background/CloudsBG/3.png" id="2_jn803"]
 [ext_resource type="Texture2D" uid="uid://d1jvulhp44o5e" path="res://assets/terrain/Terrain (16x16).png" id="3_04j2n"]
+[ext_resource type="Texture2D" uid="uid://duf8ivrt8v7yb" path="res://assets/background/CloudsBG/4.png" id="3_6jeli"]
 [ext_resource type="PackedScene" uid="uid://cbl1dwhojyqq0" path="res://scenes/game objects/main_character.tscn" id="4_b34mj"]
+[ext_resource type="Texture2D" uid="uid://bsfyisldsj2oq" path="res://assets/background/CloudsBG/2.png" id="4_f5nku"]
 [ext_resource type="Script" path="res://scenes/game objects/main_character.gd" id="5_s04ux"]
 [ext_resource type="PackedScene" uid="uid://o67o564nh7du" path="res://scenes/game objects/start.tscn" id="6_onnvn"]
+[ext_resource type="FontFile" uid="uid://d1j8y1kod6li2" path="res://assets/fonts/DigitalDisco.ttf" id="10_1866d"]
+[ext_resource type="Texture2D" uid="uid://b6d71ug15e6p1" path="res://assets/menu/Levels.png" id="11_ydtt5"]
+[ext_resource type="Texture2D" uid="uid://v55ngauyhxiu" path="res://assets/menu/Settings.png" id="12_sme1w"]
 
 [sub_resource type="GDScript" id="GDScript_2v7a2"]
 script/source = "extends Node
@@ -14,15 +20,28 @@ script/source = "extends Node
 func _on_start_body_entered(body: Node2D) -> void:
 	if (body.name == \"CharacterBody2D\"):
 		get_tree().change_scene_to_file(\"res://scenes/levels/level1.tscn\")
+		
+
+func _on_button_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/menu/level_menu.tscn\")
+
+
+func _on_options_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/menu/option_menu.tscn\")
 "
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nyp84"]
 texture = ExtResource("3_04j2n")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:0/0 = 0
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:0/0 = 0
@@ -41,10 +60,15 @@ texture = ExtResource("3_04j2n")
 18:0/0 = 0
 19:0/0 = 0
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:1/0 = 0
 6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:1/0 = 0
@@ -64,8 +88,11 @@ texture = ExtResource("3_04j2n")
 18:1/0 = 0
 19:1/0 = 0
 0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:2/0 = 0
 6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:2/0 = 0
@@ -79,10 +106,15 @@ texture = ExtResource("3_04j2n")
 18:2/0 = 0
 19:2/0 = 0
 0:4/0 = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:4/0 = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:4/0 = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:4/0 = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:4/0 = 0
+4:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:4/0 = 0
 7:4/0 = 0
 8:4/0 = 0
@@ -98,10 +130,15 @@ texture = ExtResource("3_04j2n")
 20:4/0 = 0
 21:4/0 = 0
 0:5/0 = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:5/0 = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:5/0 = 0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:5/0 = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:5/0 = 0
+4:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:5/0 = 0
 7:5/0 = 0
 8:5/0 = 0
@@ -117,8 +154,11 @@ texture = ExtResource("3_04j2n")
 20:5/0 = 0
 21:5/0 = 0
 0:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:6/0 = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:6/0 = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:6/0 = 0
 7:6/0 = 0
 8:6/0 = 0
@@ -185,18 +225,59 @@ sources/0 = SubResource("TileSetAtlasSource_nyp84")
 script/source = "extends Area2D
 "
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngjtd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bqda"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8fu1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="MainMenu" type="Node"]
 script = SubResource("GDScript_2v7a2")
 
-[node name="TextureRect2" type="TextureRect" parent="."]
+[node name="background" type="Node" parent="."]
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uw0j1")
+
+[node name="TextureRect3" type="TextureRect" parent="background"]
 texture_filter = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_d05sj")
-stretch_mode = 1
+texture = ExtResource("2_jn803")
+
+[node name="TextureRect4" type="TextureRect" parent="background"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_6jeli")
+
+[node name="TextureRect5" type="TextureRect" parent="background"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_right = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_f5nku")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -205,10 +286,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -462.0
-offset_top = -279.5
-offset_right = 462.0
-offset_bottom = 91.5
+offset_left = -451.0
+offset_top = -261.0
+offset_right = 473.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_h2k2i")
@@ -228,4 +309,82 @@ script = ExtResource("5_s04ux")
 [node name="start" parent="." instance=ExtResource("6_onnvn")]
 script = SubResource("GDScript_s0anv")
 
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Start" type="Panel" parent="UI"]
+offset_left = -52.0
+offset_top = -8.0
+offset_right = 69.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_ngjtd")
+
+[node name="Label" type="Label" parent="UI/Start"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1099.0
+offset_top = 436.0
+offset_right = 1087.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_1866d")
+theme_override_font_sizes/font_size = 25
+text = "Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Levels" type="Panel" parent="UI"]
+offset_left = 7.0
+offset_top = 432.0
+offset_right = 118.0
+offset_bottom = 472.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bqda")
+
+[node name="Button" type="Button" parent="UI/Levels"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_1866d")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8fu1")
+text = "Levels"
+icon = ExtResource("11_ydtt5")
+alignment = 0
+expand_icon = true
+
+[node name="How To Play" type="Panel" parent="UI"]
+offset_left = 7.0
+offset_top = 477.0
+offset_right = 118.0
+offset_bottom = 517.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_8bqda")
+
+[node name="options" type="Button" parent="UI/How To Play"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_1866d")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_w8fu1")
+text = "Options"
+icon = ExtResource("12_sme1w")
+alignment = 0
+expand_icon = true
+
 [connection signal="body_entered" from="start" to="." method="_on_start_body_entered"]
+[connection signal="pressed" from="UI/Levels/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="UI/How To Play/options" to="." method="_on_options_pressed"]

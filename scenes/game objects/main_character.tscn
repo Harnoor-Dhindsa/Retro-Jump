@@ -1,9 +1,11 @@
-[gd_scene load_steps=30 format=3 uid="uid://cbl1dwhojyqq0"]
+[gd_scene load_steps=32 format=3 uid="uid://cbl1dwhojyqq0"]
 
-[ext_resource type="Texture2D" uid="uid://brharromy1o7c" path="res://assets/character/Idle (32x32).png" id="1_7lxpg"]
-[ext_resource type="Texture2D" uid="uid://dl4gwefbo6gx4" path="res://assets/character/Fall (32x32).png" id="2_bchbm"]
-[ext_resource type="Texture2D" uid="uid://coakaxaqiyssu" path="res://assets/character/Jump (32x32).png" id="3_c4wdp"]
-[ext_resource type="Texture2D" uid="uid://bnetcwko6ud6c" path="res://assets/character/Run (32x32).png" id="4_rcn5g"]
+[ext_resource type="Texture2D" uid="uid://brharromy1o7c" path="res://assets/character/main/Idle (32x32).png" id="1_7lxpg"]
+[ext_resource type="Texture2D" uid="uid://dl4gwefbo6gx4" path="res://assets/character/main/Fall (32x32).png" id="2_bchbm"]
+[ext_resource type="Texture2D" uid="uid://coakaxaqiyssu" path="res://assets/character/main/Jump (32x32).png" id="3_c4wdp"]
+[ext_resource type="Texture2D" uid="uid://bnetcwko6ud6c" path="res://assets/character/main/Run (32x32).png" id="4_rcn5g"]
+[ext_resource type="AudioStream" uid="uid://cse3w6ju6748e" path="res://assets/sound/jump.wav" id="5_dpo75"]
+[ext_resource type="AudioStream" uid="uid://db8q72yg661g2" path="res://assets/sound/walk.wav" id="6_jd6xv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tmqg6"]
 atlas = ExtResource("1_7lxpg")
@@ -210,3 +212,12 @@ autoplay = "default"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(321, 489)
 shape = SubResource("RectangleShape2D_oox6t")
+
+[node name="sfx_jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_dpo75")
+volume_db = -10.0
+
+[node name="sfx_walk" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_jd6xv")
+volume_db = -4.0
+panning_strength = 0.22

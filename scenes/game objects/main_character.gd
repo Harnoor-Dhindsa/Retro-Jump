@@ -4,6 +4,9 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -500.0
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var sfx_jump: AudioStreamPlayer2D = $sfx_jump
+@onready var sfx_walk: AudioStreamPlayer2D = $sfx_walk
+
 
 
 func jump():
@@ -27,6 +30,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		sfx_jump.play()
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -34,8 +38,12 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	if direction:
 		velocity.x = direction * SPEED
+		if is_on_floor():
+			if !sfx_walk.playing:
+				sfx_walk.play()
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		sfx_walk.stop()
 
 	move_and_slide()
 	

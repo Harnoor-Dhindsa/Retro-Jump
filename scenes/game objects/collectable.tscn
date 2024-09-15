@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://dkqb8hn2tf0he"]
+[gd_scene load_steps=30 format=3 uid="uid://dkqb8hn2tf0he"]
 
 [ext_resource type="Script" path="res://scenes/game objects/collectable.gd" id="1_2ik2g"]
 [ext_resource type="Texture2D" uid="uid://3nvujc04onwg" path="res://assets/game_elements/Apple.png" id="1_iy6ab"]
 [ext_resource type="Texture2D" uid="uid://ditw8avl1ms5n" path="res://assets/game_elements/Collected.png" id="2_e5scv"]
+[ext_resource type="AudioStream" uid="uid://b1bbm7q8o6gae" path="res://assets/sound/collect.wav" id="4_jvbbf"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7eme6"]
 atlas = ExtResource("2_e5scv")
@@ -198,5 +199,10 @@ frame_progress = 1.0
 position = Vector2(167, 265)
 scale = Vector2(2.8125, 2.8125)
 shape = SubResource("CircleShape2D_iwqty")
+
+[node name="sfx_collect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_jvbbf")
+volume_db = -4.0
+panning_strength = 0.22
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

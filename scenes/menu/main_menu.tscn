@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d3c13eas8gx1e" path="res://assets/menu/Volume.png" id="14_5hty8"]
 [ext_resource type="AudioStream" uid="uid://cbv1ykpsokgto" path="res://assets/sound/bg/bg.ogg" id="15_rik6n"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nyp84"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xgel2"]
 texture = ExtResource("3_04j2n")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -207,7 +207,7 @@ texture = ExtResource("3_04j2n")
 
 [sub_resource type="TileSet" id="TileSet_4ny5n"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_nyp84")
+sources/0 = SubResource("TileSetAtlasSource_xgel2")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8bqda"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

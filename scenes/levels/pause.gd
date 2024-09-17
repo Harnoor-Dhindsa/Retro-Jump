@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	if (esc_pressed == true):
 		get_tree().paused = true
 		pause_panel.show()
+		hover.play()
 
 func _on_resume_pressed() -> void:
 	pause_panel.hide()

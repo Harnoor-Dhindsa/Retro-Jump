@@ -9,3 +9,4 @@ func _on_body_entered(body: Node2D) -> void:
 		finish.play()
 		await finish.finished
 		get_tree().change_scene_to_packed(target_level)
+		

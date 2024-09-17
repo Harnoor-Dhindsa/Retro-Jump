@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cbttmq7x2uxa" path="res://assets/game_elements/End (Idle).png" id="1_5uv4v"]
 [ext_resource type="Script" path="res://scenes/game objects/finish.gd" id="1_yf0yj"]
-[ext_resource type="AudioStream" uid="uid://b4mcvywj08lts" path="res://assets/sound/sfx/win.mp3" id="3_u8yaa"]
+[ext_resource type="AudioStream" uid="uid://bisyeg7mimrnt" path="res://assets/sound/sfx/finish.mp3" id="3_4r6gd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ey57u"]
 size = Vector2(34, 44.25)
@@ -20,7 +20,7 @@ position = Vector2(376, 128.875)
 shape = SubResource("RectangleShape2D_ey57u")
 
 [node name="finish" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_u8yaa")
+stream = ExtResource("3_4r6gd")
 volume_db = -10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

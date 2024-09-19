@@ -22,7 +22,6 @@ config/windows_native_icon="res://assets/icon/icon.ico"
 
 window/size/mode=3
 window/stretch/mode="canvas_items"
-window/stretch/aspect="ignore"
 
 [input]
 

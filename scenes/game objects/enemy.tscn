@@ -183,10 +183,12 @@ shape = SubResource("RectangleShape2D_usj0q")
 stream = ExtResource("4_bbtv8")
 volume_db = -4.0
 panning_strength = 0.22
+bus = &"sfx"
 
 [node name="sfx_hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_d63vt")
 volume_db = -4.0
 panning_strength = 0.22
+bus = &"sfx"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

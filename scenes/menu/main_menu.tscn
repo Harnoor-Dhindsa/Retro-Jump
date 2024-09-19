@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://j2ojtu3mov1"]
+[gd_scene load_steps=21 format=3 uid="uid://j2ojtu3mov1"]
 
 [ext_resource type="Script" path="res://scenes/menu/main_menu.gd" id="1_2ce7j"]
 [ext_resource type="Texture2D" uid="uid://daturbiqw3wrv" path="res://assets/background/CloudsBG/1.png" id="1_uw0j1"]
@@ -15,7 +15,6 @@
 [ext_resource type="Texture2D" uid="uid://v55ngauyhxiu" path="res://assets/menu/Settings.png" id="12_sme1w"]
 [ext_resource type="Texture2D" uid="uid://b1lo0e8gjftp5" path="res://assets/menu/Close.png" id="13_7fhnu"]
 [ext_resource type="AudioStream" uid="uid://dac1qi7mu11lo" path="res://assets/sound/sfx/button.mp3" id="13_seio7"]
-[ext_resource type="Texture2D" uid="uid://d3c13eas8gx1e" path="res://assets/menu/Volume.png" id="14_5hty8"]
 [ext_resource type="AudioStream" uid="uid://cbv1ykpsokgto" path="res://assets/sound/bg/bg.ogg" id="15_rik6n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xgel2"]
@@ -215,9 +214,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8fu1"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngdt2"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [node name="MainMenu" type="Node"]
 script = ExtResource("1_2ce7j")
 
@@ -316,14 +312,14 @@ icon = ExtResource("11_ydtt5")
 alignment = 0
 expand_icon = true
 
-[node name="How To Play" type="Panel" parent="UI"]
+[node name="Options" type="Panel" parent="UI"]
 offset_left = 519.0
 offset_top = 526.0
 offset_right = 630.0
 offset_bottom = 566.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_8bqda")
 
-[node name="options" type="Button" parent="UI/How To Play"]
+[node name="options" type="Button" parent="UI/Options"]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
@@ -335,7 +331,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_1866d")
 theme_override_font_sizes/font_size = 18
 theme_override_styles/normal = SubResource("StyleBoxFlat_w8fu1")
-text = "Controls"
+text = "Options"
 icon = ExtResource("12_sme1w")
 alignment = 0
 expand_icon = true
@@ -388,45 +384,22 @@ icon = ExtResource("12_krxws")
 alignment = 0
 expand_icon = true
 
-[node name="sound" type="Panel" parent="UI"]
-texture_filter = 1
-offset_left = 1008.0
-offset_top = 9.0
-offset_right = 1139.0
-offset_bottom = 57.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_ngdt2")
-
-[node name="volume" type="CheckButton" parent="UI/sound"]
-texture_filter = 1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-button_pressed = true
-action_mode = 0
-icon = ExtResource("14_5hty8")
-icon_alignment = 1
-expand_icon = true
-
 [node name="hover" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_seio7")
 volume_db = -10.0
+bus = &"sfx"
 
 [node name="bg" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_rik6n")
-volume_db = -16.0
+volume_db = -24.644
 autoplay = true
 
 [connection signal="mouse_entered" from="UI/Levels/levels" to="." method="_on_levels_mouse_entered"]
 [connection signal="pressed" from="UI/Levels/levels" to="." method="_on_levels_pressed"]
-[connection signal="mouse_entered" from="UI/How To Play/options" to="." method="_on_options_mouse_entered"]
-[connection signal="pressed" from="UI/How To Play/options" to="." method="_on_options_pressed"]
+[connection signal="mouse_entered" from="UI/Options/options" to="." method="_on_options_mouse_entered"]
+[connection signal="pressed" from="UI/Options/options" to="." method="_on_options_pressed"]
 [connection signal="mouse_entered" from="UI/quit/quit" to="." method="_on_quit_mouse_entered"]
 [connection signal="pressed" from="UI/quit/quit" to="." method="_on_quit_pressed"]
 [connection signal="mouse_entered" from="UI/start/start" to="." method="_on_start_mouse_entered"]
 [connection signal="pressed" from="UI/start/start" to="." method="_on_start_pressed"]
-[connection signal="toggled" from="UI/sound/volume" to="." method="_on_volume_toggled"]
 [connection signal="ready" from="bg" to="." method="_on_bg_ready"]

@@ -26,13 +26,6 @@ func _on_levels_mouse_entered() -> void:
 
 func _on_levels_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu/level_menu.tscn")
-
-func _on_volume_toggled(toggled_on: bool) -> void:
-	if (toggled_on == true):
-		bg.play()
-	else:
-		bg.stop()
-
 	
 func _on_quit_pressed() -> void:
 	get_tree().quit()

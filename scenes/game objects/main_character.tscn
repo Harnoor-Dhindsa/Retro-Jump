@@ -218,8 +218,10 @@ shape = SubResource("RectangleShape2D_oox6t")
 [node name="sfx_jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_dpo75")
 volume_db = -10.0
+bus = &"sfx"
 
 [node name="sfx_walk" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_jd6xv")
 volume_db = -4.0
 panning_strength = 0.22
+bus = &"sfx"

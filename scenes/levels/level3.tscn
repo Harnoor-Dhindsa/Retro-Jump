@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scenes/game objects/main_character.gd" id="5_vmkla"]
 [ext_resource type="PackedScene" uid="uid://btvffh7v55iku" path="res://scenes/game objects/finish.tscn" id="6_o83hi"]
 [ext_resource type="Script" path="res://scenes/game objects/fall.gd" id="7_4f3l4"]
-[ext_resource type="PackedScene" uid="uid://j2ojtu3mov1" path="res://scenes/menu/main_menu.tscn" id="7_fvs2x"]
+[ext_resource type="PackedScene" uid="uid://dpxvdv78p0lk6" path="res://scenes/levels/level4.tscn" id="7_i74qf"]
 [ext_resource type="PackedScene" uid="uid://dkqb8hn2tf0he" path="res://scenes/game objects/collectable.tscn" id="8_y4ncp"]
 [ext_resource type="AudioStream" uid="uid://d0jpkrexyhv1p" path="res://assets/sound/sfx/game_over.mp3" id="9_o4b3t"]
 [ext_resource type="PackedScene" uid="uid://8ohi2vhhhjo5" path="res://scenes/game objects/enemy.tscn" id="9_uvigr"]
@@ -309,7 +309,7 @@ rotation_smoothing_enabled = true
 
 [node name="finish" parent="SceneObjects" instance=ExtResource("6_o83hi")]
 position = Vector2(2190, -7)
-target_level = ExtResource("7_fvs2x")
+target_level = ExtResource("7_i74qf")
 
 [node name="Area2D" type="Area2D" parent="SceneObjects"]
 position = Vector2(1774, 701)

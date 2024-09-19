@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b4jckiln2viah"]
+[gd_scene load_steps=28 format=3 uid="uid://b4jckiln2viah"]
 
 [ext_resource type="Script" path="res://scenes/intro/intro.gd" id="1_ec0ug"]
 [ext_resource type="Texture2D" uid="uid://daturbiqw3wrv" path="res://assets/background/CloudsBG/1.png" id="2_gq6bq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://d1jvulhp44o5e" path="res://assets/terrain/Terrain (16x16).png" id="7_v30ay"]
 [ext_resource type="Script" path="res://scenes/intro/path_follow_2d.gd" id="8_okrjm"]
 [ext_resource type="Texture2D" uid="uid://b6jt3ae0hoqx" path="res://assets/character/BlueBird/Flying (32x32).png" id="9_g025l"]
+[ext_resource type="AudioStream" uid="uid://d10s7sjp276ce" path="res://assets/sound/sfx/bird.mp3" id="10_cau28"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5i2ej"]
 texture = ExtResource("7_v30ay")
@@ -292,6 +293,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Path2D/PathFollow2D/AnimatedSprite2D/sfx_crow:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-80.0]
+}
 
 [sub_resource type="Animation" id="Animation_b0son"]
 resource_name = "fade_in"
@@ -308,6 +321,18 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Path2D/PathFollow2D/AnimatedSprite2D/sfx_crow:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1, 2.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-50.386, -10.0]
+}
 
 [sub_resource type="Animation" id="Animation_yllu6"]
 resource_name = "fade_out"
@@ -323,6 +348,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Path2D/PathFollow2D/AnimatedSprite2D/sfx_crow:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-10.0, -50.386]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vd2ja"]
@@ -417,6 +454,11 @@ sprite_frames = SubResource("SpriteFrames_k7ww2")
 autoplay = "default"
 frame_progress = 0.232352
 flip_h = true
+
+[node name="sfx_crow" type="AudioStreamPlayer2D" parent="Path2D/PathFollow2D/AnimatedSprite2D"]
+stream = ExtResource("10_cau28")
+volume_db = -80.0
+autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -100.0

@@ -22,5 +22,6 @@ shape = SubResource("RectangleShape2D_ey57u")
 [node name="finish" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_4r6gd")
 volume_db = -10.0
+bus = &"sfx"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

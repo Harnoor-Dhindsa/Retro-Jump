@@ -1,4 +1,5 @@
 extends PathFollow2D
+@onready var sfx_crow: AudioStreamPlayer2D = $AnimatedSprite2D/sfx_crow
 
 var speed = 0.1
 
